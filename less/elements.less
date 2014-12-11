@@ -1,0 +1,369 @@
+/*------------------------------------------------------------------
+Project:    Wolfram
+Author:     Yevgeny Simzikov
+URL:        http://simpleqode.com/
+            https://twitter.com/YevSim
+Version:    1.0
+Created:        18/08/2014
+Last change:    29/08/2014
+-------------------------------------------------------------------*/
+
+/*
+ * Typography
+ */
+
+@font-family-sans-serif: 'Roboto', sans-serif;
+@headings-font-family: 'Oswald', sans-serif;
+@headings-font-weight: 400;
+@link-color: #FFF;
+@link-hover-color: #FFF;
+
+body {
+  font-weight: 300;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar-btn {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  padding: 10px 15px;
+  color: #FFF;
+  cursor: pointer;
+  z-index: 113;
+  .g-text-shadow;
+  .user-select(none);
+}
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: fade(#000,15%);
+  z-index: 111;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 200px;
+  background: @navbar-inverse-bg;
+  overflow: auto;
+  z-index: 112;
+}
+@media(max-width: 200px) {
+  .sidebar {
+    width: 100%;
+  }
+}
+.sidebar-menu {
+  font-weight: 400;
+}
+.sidebar-menu__title {
+  padding: 15px 60px 25px 15px;
+  font-size: 18px;
+  line-height: 20px;
+  color: @navbar-inverse-brand-color;
+  .text-overflow();
+}
+.sidebar-menu__ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #252525;
+  > li > a {
+    display: block;
+    padding: 10px 15px;
+    border-top: 1px solid #252525;
+    border-bottom: 1px solid #000;
+    line-height: 20px;
+    color: @navbar-inverse-link-color;
+    .text-overflow();
+    .transition(color 300ms);
+    &:hover {
+      color: @navbar-inverse-link-hover-color;
+      text-decoration: none;
+    }
+  }
+}
+
+
+/*
+ * Navbar
+ */
+
+@navbar-height: 70px;
+
+.navbar {
+  font-weight: 400;
+  .transition(background-color 700ms);
+}
+.navbar-nav > li > a,
+.navbar-brand {
+  .transition(color 300ms);
+}
+
+/*
+ * Navbar :: Default
+ */
+
+@navbar-default-color: darken(#FFF, 40%);
+@navbar-default-bg: #FFF;
+@navbar-default-border: transparent;
+@navbar-default-link-color: @navbar-default-color;
+@navbar-default-link-hover-color: #000;
+@navbar-default-link-active-color: #000;
+@navbar-default-link-active-bg: transparent;
+@navbar-default-link-disabled-color: darken(#FFF, 20%);
+@navbar-default-brand-color: @navbar-default-color;
+@navbar-default-brand-hover-color: #000;
+
+.navbar-default.navbar-faded {
+  background-color: fade(#FFF,90%);
+}
+.navbar-default {
+  border: 0;
+
+  .navbar-toggle {
+    border-color: #DDD;
+    background-color: #FFF;
+
+    &:hover, &:focus {
+      background-color: #FFF;
+
+      .icon-bar {
+        background-color: #444;
+      }
+    }
+
+    .icon-bar {
+      background-color: #666;
+    }
+  }
+
+  .navbar-collapse {
+    .box-shadow(none);
+    border: 0;
+  }
+}
+
+@media(max-width: @screen-xs-max) {
+
+  .navbar-default.navbar-faded {
+    background-color: #FFF;
+
+    .navbar-nav {
+      margin-top: 0;
+      margin-bottom: 0;
+      border-top: 1px solid #DDD;
+
+      > li > a {
+        border-bottom: 1px solid #DDD;
+      }
+
+      > li:last-child > a{
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+/*
+ * Navbar :: Inverse
+ */
+
+@navbar-inverse-color: darken(#FFF, 25%);
+@navbar-inverse-bg: #151515;
+@navbar-inverse-border: transparent;
+@navbar-inverse-link-color: @navbar-inverse-color;
+@navbar-inverse-link-hover-color: #FFF;
+@navbar-inverse-link-active-color: #FFF;
+@navbar-inverse-link-active-bg: transparent;
+@navbar-inverse-link-disabled-color: darken(#FFF, 40%);
+@navbar-inverse-brand-color: @navbar-inverse-color;
+@navbar-inverse-brand-hover-color: #FFF;
+
+.navbar-inverse.navbar-faded {
+  background-color: fade(#000,30%);
+}
+.navbar-inverse {
+  border: 0;
+
+  .navbar-toggle {
+    border-color: #000;
+    background-color: #101010;
+    .box-shadow(0 0 1px 1px #333);
+
+    &:hover, &:focus {
+      background-color: #101010;
+
+      .icon-bar {
+        background-color: #959595;
+      }
+    }
+
+    .icon-bar {
+      background-color: #666;
+    }
+  }
+
+  .navbar-collapse {
+    .box-shadow(none);
+    border: 0;
+  }
+}
+
+@media(max-width: @screen-xs-max) {
+
+  .navbar-inverse.navbar-faded {
+    background-color: #151515;
+
+    .navbar-nav {
+      margin-top: 0;
+      margin-bottom: 0;
+      border-top: 1px solid #000;
+
+      > li > a {
+        border-top: 1px solid #252525;
+        border-bottom: 1px solid #000;
+      }
+
+      > li:last-child > a{
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+/*
+ * Navbar :: Transparent
+ */
+
+@media(min-width: @screen-sm-min) {
+  .navbar-transparent {
+    background-color: rgba(0,0,0,0) !important;
+    .navbar-brand,
+    .navbar-text,
+    .navbar-nav > li > a,
+    .navbar-nav > .active > a,
+    .navbar-nav > .disabled > a {
+      color: #FFF;
+      &:hover, &:focus {
+        color: #FFF;
+      }
+    }
+  }
+}
+
+/*
+ * Buttons
+ */
+
+.btn {
+  text-shadow: none !important;
+  .transition(all 300ms);
+
+  &:hover, &:focus {
+    .box-shadow(none);
+  }
+}
+
+/*
+ * Button :: Transparent
+ */
+
+.btn-transparent {
+  border-color: #FFF;
+  color: #FFF;
+
+  &:hover, &:focus {
+    background: rgba(255,255,255,.1);
+    color: #FFF;
+    .box-shadow(none);
+  }
+}
+
+/*
+ * Button :: White
+ */
+
+.btn-white-outline {
+  display: inline-block;
+  border: 1px solid #FFF;
+  border-radius: @border-radius-base + 1px;
+  padding: 2px;
+
+  > .btn {
+    border-radius: @border-radius-base !important;
+  }
+}
+.btn-white {
+  position: relative;
+  border-color: #FFF;
+  background-color: #FFF;
+  color: @text-color;
+
+  &:hover, &:focus {
+    border-color: transparent;
+    background-color: transparent;
+    color: #FFF;
+  }
+}
+
+/*
+ * Carousel
+ */
+
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none;
+  .reset-filter();
+}
+.carousel-indicators li {
+  width: 12px;
+  height: 12px;
+  margin: 0 1px;
+  border-radius: 12px;
+}
+.carousel-indicators .active {
+  margin: 0 1px;
+}
+
+/*
+ * Carousel :: #team__carousel
+ */
+
+#team__carousel {
+  margin-bottom: 100px;
+
+  .carousel-indicators {
+    bottom: -80px;
+  }
+}
+
+/*
+ * Forms 
+ */
+
+@input-height-base: 42px;
+
+/*
+ * Scroll top
+ */
+
+.scrolltop {
+  background-color: fade(#000,50%);
+  padding: 10px 15px;
+  font-size: 18px;
+  color: #FFF;
+  .transition(background-color 300ms);
+  &:hover {
+    background-color: fade(#000,70%);
+  }
+}

@@ -1,0 +1,374 @@
+/*------------------------------------------------------------------
+Project:    Wolfram
+Author:     Yevgeny Simzikov
+URL:        http://simpleqode.com/
+            https://twitter.com/YevSim
+Version:    1.0
+Created:        18/08/2014
+Last change:    29/08/2014
+-------------------------------------------------------------------*/
+
+@import "bootstrap/bootstrap.less";
+@import "global.less";
+@import "elements.less";
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  position: relative;
+  color: white;
+}
+.bg-pattern {
+  background-image: url(../img/pattern_no.png);
+  background-repeat: repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+.bg-pattern_vertical {
+  background-image: url(../img/pattern_vertical.png);
+}
+.bg-pattern_horizontal {
+  background-image: url(../img/pattern_horizontal.png);
+}
+.backstretch-carousel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+}
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+.site-wrapper__inner {
+  display: table-cell;
+  vertical-align: top;
+  padding-top: 60px;
+}
+#welcome > .site-wrapper__inner {
+  padding-top: 150px;
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: @screen-sm-min) {
+  .site-wrapper__inner {
+    vertical-align: middle;
+    padding-top: 0;
+  }
+  #welcome > .site-wrapper__inner {
+    padding-top: 0;
+  }
+  .cover-container {
+    width: 100%;
+  }
+}
+@media (min-width: @screen-md-min) {
+  .cover-container {
+    width: 700px;
+  }
+}
+
+/*
+ * General
+ */
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+  .g-text-shadow;
+}
+.title__sub-text {
+  font-size: 16px;
+  text-align: center;
+  .g-text-shadow;
+}
+.title + .title__sub-text {
+  margin-top: -40px;
+  margin-bottom: 60px;
+}
+
+/*
+ * Welcome screen
+ */
+
+.site-wrapper-welcome__title {
+  margin: 0 auto 30px;
+  font-size: 52px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  .g-text-shadow;
+}
+.site-wrapper-welcome__summary {
+  margin-bottom: 60px;
+  font-size: 16px;
+  text-align: center;
+  .g-text-shadow;
+}
+.site-wrapper-welcome__btn {
+  padding: 20px 55px;
+  font-size: 16px;
+}
+
+/*
+ * About screen 
+ */
+
+.about__item {
+  margin-bottom: 30px;
+  cursor: pointer;
+  .opacity(.5);
+  .transition(opacity 300ms);
+
+  &:hover, &:focus {
+    .opacity(1);
+  }
+}
+.about-item__header {
+  display: table;
+  margin-bottom: 20px;
+  .g-text-shadow;
+}
+.about-item-header__icon {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 48px;
+}
+.about-item-header__title {
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 20px;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.about-item__summary {
+  .g-text-shadow;
+}
+
+/*
+ * Portfolio screen 
+ */
+
+.site-wrapper_portfolio {
+  .col-alt {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+.portfolio__item {
+  position: relative;
+  border: 3px solid fade(#FFF,50%);
+  margin-bottom: 10px;
+  cursor: pointer;
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+  }
+}
+.portfolio-item__img {
+  position: relative;
+
+  &:hover {
+    .portfolio-item-img__mask {
+      .opacity(1);
+    }
+    .portfolio-mask-inner__icon,
+    .portfolio-mask-inner__title,
+    .portfolio-mask-inner__summary {
+      display: block !important;
+    }
+  }
+}
+.portfolio-item-img__mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: fade(#000,70%);
+  padding: 10px;
+  text-align: center;
+  .opacity(0);
+  .transition(opacity 300ms);
+}
+.portfolio-mask__container {
+  display: table;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+}
+.portfolio-mask__inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+.portfolio-mask-inner__icon,
+.portfolio-mask-inner__title,
+.portfolio-mask-inner__summary {
+  display: none;
+}
+
+/*
+ * Pricing screen 
+ */
+
+.pricing__item {
+  margin-bottom: 30px;
+}
+.pricing-item__header {
+  display: table;
+  margin-bottom: 20px;
+  .g-text-shadow;
+}
+.pricing-item-header__price {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 48px;
+  font-weight: 600;
+
+  > .price_period {
+    font-size: @font-size-base;
+  }
+}
+.pricing-item-header__title {
+  display: table-cell;
+  vertical-align: middle;
+  padding-left: 20px;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.pricing-item__body {
+  line-height: 1.8;
+  .g-text-shadow;
+}
+.pricing-item-body__list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+
+  > li {
+    margin: 3px 0;
+  }
+}
+
+/*
+ * Team screen 
+ */
+
+.team-member__icon {
+  @size: 70px;
+  .square(@size);
+  padding: 20px;
+  margin: 0 auto 20px;
+  border-radius: @size/2;
+  border: 1px solid #FFF;
+  text-align: center;
+  .g-text-shadow;
+}
+.team-member__title {
+  margin-top: 0;
+  font-size: 26px;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: center;
+  .g-text-shadow;
+}
+.team-member__title + .team-member__title {
+  margin-bottom: 20px;
+}
+.team-member__summary {
+  margin-bottom: 25px;
+  text-align: center;
+  .g-text-shadow;
+}
+.team-member__btn {
+  padding: 8px 16px;
+}
+
+/*
+ * Features screen 
+ */
+
+.features__icon {
+  @size: 100px;
+  padding: 27px;
+  margin: 0 auto;
+  border: 1px solid #FFF;
+  .square(@size);
+}
+.features__item {
+  margin-bottom: 50px;
+}
+.features-item__title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 300;
+  text-transform: uppercase;
+  .g-text-shadow;  
+}
+
+/*
+ * Contact screen
+ */
+
+.contact__info {
+  margin-bottom: 30px;
+}
+.contact-info__title:first-child {
+  margin-top: 0;
+}
+.contact__form {
+  margin-bottom: 60px;
+  .form-control {
+    background: transparent;
+    border-radius: 0;
+    border-color: #FFF;
+    color: #FFF;
+    font-weight: 400;
+    .placeholder(#FFF);
+    .transition(background 300ms);
+
+    &:focus {
+      background: #FFF;
+      color: @text-color;
+      .placeholder(@text-color);
+      .box-shadow(none);
+    }
+
+  }
+  .btn {
+    background: transparent;
+    border-radius: 0;
+    padding: 10px 20px;
+
+    &:hover, &:focus {
+      background: rgba(255,255,255,.1);
+      color: #FFF;
+      outline: none;
+      .box-shadow(none);
+    }
+  }
+}
