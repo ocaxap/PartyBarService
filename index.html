@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -31,11 +31,22 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      var form = $('#mail-form');
+      form.submit(function(){
+        $.post($(this).attr('action'), $(this).serialize(), function(response){
+                
+        },'json');
+        return false;
+      });
+    });      
+  </script>
 
-  <body class="preloader global-color_sun" data-spy="scroll" data-target=".navbar">
+  <body class="preloader global-color_sun commmon-background" data-spy="scroll" data-target=".navbar">  
 
     <!-- Background Pattern -->
-    <div class="bg-pattern bg-pattern_vertical"></div>
+    
     <!-- Backstretch Carousel -->
     <!--Замут с background-->
     <!--<div class="backstretch-carousel"></div>-->
@@ -50,9 +61,9 @@
         <li><a href="#about"><i class="fa fa-info-circle fa-fw"></i> О нас</a></li>
         <li><a href="#portfolio"><i class="fa fa-image fa-fw"></i> Портфолио</a></li>
         <li><a href="#pricing"><i class="fa fa-money fa-fw"></i> Расценки</a></li>
-        <li><a href="#team"><i class="fa fa-users fa-fw"></i> Команда</a></li>
-        <li><a href="#features"><i class="fa fa-asterisk fa-fw"></i> Особенности</a></li>
+        <li><a href="#team"><i class="fa fa-users fa-fw"></i> Команда</a></li>        
         <li><a href="#contact-us"><i class="fa fa-envelope fa-fw"></i> Контакты</a></li>
+        <li><a href="#partners"><i class="fa fa-envelope fa-fw"></i> Партнеры</a></li>
       </ul>
     </div>
 
@@ -76,9 +87,9 @@
             <li><a href="#about">О Нас</a></li>
             <li><a href="#portfolio">Портфолио</a></li>
             <li><a href="#pricing">Расценки</a></li>
-            <li><a href="#team">Команда</a></li>
-            <li><a href="#features">Особенности</a></li>
+            <li><a href="#team">Команда</a></li>            
             <li><a href="#contact-us">Контакты</a></li>
+            <li><a href="#partners">Партнеры</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -88,13 +99,16 @@
     <div class="site-wrapper site-wrapper_welcome screen" id="welcome">
       <div class="site-wrapper__inner">
           <div id="logo-main">
-            <img src="img/partybarservice-logo.png" alt="logo" class="img-responsive">
+            <img src="img/partybarservice-logo.png" alt="logo" class="img-responsive">            
           </div>
+          <h3 class="title" style="margin-bottom: 20px;">
+            Party Bar Service
+          </h3>
         <div class="cover-container">
           <h1 class="site-wrapper-welcome__title">
           </h1>
           <p class="site-wrapper-welcome__summary">
-            Это может быть как большое мероприятие, так и небольшая тусовка,<br>огромный рейв или просто флет, нам не важно - рады будут все!
+          	Party Bar Service - мобильный коктейль-бар.<br> Без сомнения, с ним Ваша вечеринка, день рожедния, свадьба, корпоратив станет намного красочнее, интересней, вкуснее и самое главное - запомниться Вашим гостям еще на долго!
           </p>
           <div class="text-center">
             <a class="btn btn-transparent site-wrapper-welcome__btn" href="#about">
@@ -110,15 +124,10 @@
       <div class="site-wrapper__inner">
         <div class="cover-container">
           <h2 class="title">
-            Почему мы <span class="global-text-color">уникальны</span> в этом?
+            Немного <span class="global-text-color">о нас</span>
           </h2>
           <p class="title__sub-text">
-              У нас демократичные цены и индивидуальный подход к каждому.<br>
-              Профессиональное барное оборудование.<br>
-              Мы всё делаем быстро, качественно и со вкусом.<br>
-              Готовы работать столько, сколько вам нужно.<br>
-              Там - где вы скажите... желательно в пределах Беларуси ;)<br>
-              С нами всегда можно договориться!<br>
+             Мы гарантируем незабываемую атмосферу в любое время и в любом месте! Полноценное и качественное обслуживание профессиональными барменами, общение с гостями в процессе приготовления коктейля - все это Вы получите, заказав услугу выездного коктейль-бара.
 
           </p>
         </div>
@@ -127,46 +136,44 @@
             <div class="col-sm-4">
               <div class="about__item">
                 <div class="about-item__header">
-                  <div class="about-item-header__icon">
-                    <i class="fa fa-glass"></i>
+                  <div id="about-item-header__icon_one">
+                    
                   </div>
                   <h3 class="about-item-header__title">Разработка <br />тематического меню</h3>
                   <div class="clearfix"></div>
                 </div>
                 <div class="about-item__summary g-line-height-lg">
-                  Мы без труда поможем Вам подготовить эксклюзивное коктейльную карту для вашего праздника из любых алкогольных напитков на Ваш вкус.
+                  Разработка уникальных коктейлей и целых коктейльных карт специально под формат вашего мероприятия.
                 </div>
               </div>
             </div>
             <div class="col-sm-4">
               <div class="about__item">
                 <div class="about-item__header">
-                  <div class="about-item-header__icon">
-                    <i class="fa fa-map-marker"></i>
+                  <div id="about-item-header__icon_two">                    
                   </div>
                   <h3 class="about-item-header__title">
-                    По всей<br />территории РБ
+                    Разнообразие
                   </h3>
                   <div class="clearfix"></div>
                 </div>
                 <div class="about-item__summary g-line-height-lg">
-                  Мы рассмотрим любые предложения из разных уголков нашей любимой страны. Мы мобильны и легки на подъем.
+                  Мы создадим атмосферу соответствующую вашему празднику! 
                 </div>
               </div>
             </div>
             <div class="col-sm-4">
               <div class="about__item">
                 <div class="about-item__header">
-                  <div class="about-item-header__icon">
-                    <i class="fa fa-thumbs-up"></i>
+                  <div id="about-item-header__icon_three">                    
                   </div>
                   <h3 class="about-item-header__title">
-                    Яркое<br />шоу
+                    Оперативность
                   </h3>
                   <div class="clearfix"></div>
                 </div>
                 <div class="about-item__summary g-line-height-lg">
-                  Наши бармены устроят Вам шоу, которое Вы запомните на долго и с легкостью будете вспоминать утром после праздника.
+                  Исходя из многолетнего опыта, мы выполним работу максимально быстро и качественно.
                 </div>
               </div>
             </div>
@@ -183,73 +190,34 @@
             Некоторые фотографии<br />с <span class="global-text-color">нашим</span> участием
           </h2>
           <p class="title__sub-text">
-            Приятно вспоминать праздники наших заказчиков и из довольные лица.
+            Приятно вспоминать праздники наших заказчиков.
           </p>
         </div>
         <div class="container">
           <div class="row">
             <div class="col-sm-4 col-alt">
               <div class="portfolio__item">
-                <a href="img/portfolio-screenshot_1.jpg" data-lightbox="portfolio-item__img" data-title="Project Number 1">
+                <a href="img/portfolio-screenshot_1.jpg" data-lightbox="portfolio-item__img">
                   <div class="portfolio-item__img">
-                    <img class="img-responsive" src="img/portfolio-screenshot_1.jpg" alt="...">
-                    <div class="portfolio-item-img__mask">
-                      <div class="portfolio-mask__container">
-                        <div class="portfolio-mask__inner">
-                          <div class="portfolio-mask-inner__icon animated fadeIn">
-                            <i class="fa fa-image fa-2x"></i>
-                          </div>
-                          <h4 class="portfolio-mask-inner__title animated fadeInUp">Project Title</h4>
-                          <p class="portfolio-mask-inner__summary animated fadeInDown">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+                    <img class="img-responsive" src="img/portfolio-screenshot_1.jpg" alt="...">                    
                   </div>
                 </a>
               </div>
             </div>
             <div class="col-sm-4 col-alt">
               <div class="portfolio__item">
-                <a href="img/portfolio-screenshot_2.jpg" data-lightbox="portfolio-item__img" data-title="Project Number 2">
+                <a href="img/portfolio-screenshot_2.jpg" data-lightbox="portfolio-item__img">
                   <div class="portfolio-item__img">
-                    <img class="img-responsive" src="img/portfolio-screenshot_2.jpg" alt="...">
-                    <div class="portfolio-item-img__mask">
-                      <div class="portfolio-mask__container">
-                        <div class="portfolio-mask__inner">
-                          <div class="portfolio-mask-inner__icon animated fadeIn">
-                            <i class="fa fa-image fa-2x"></i>
-                          </div>
-                          <h4 class="portfolio-mask-inner__title animated fadeInUp">Project Title</h4>
-                          <p class="portfolio-mask-inner__summary animated fadeInDown">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+                    <img class="img-responsive" src="img/portfolio-screenshot_2.jpg" alt="...">                    
                   </div>
                 </a>
               </div>
             </div>
             <div class="col-sm-4 col-alt">
               <div class="portfolio__item">
-                <a href="img/portfolio-screenshot_3.jpg" data-lightbox="portfolio-item__img" data-title="Project Number 3">
+                <a href="img/portfolio-screenshot_3.jpg" data-lightbox="portfolio-item__img">
                   <div class="portfolio-item__img">
-                    <img class="img-responsive" src="img/portfolio-screenshot_3.jpg" alt="...">
-                    <div class="portfolio-item-img__mask">
-                      <div class="portfolio-mask__container">
-                        <div class="portfolio-mask__inner">
-                          <div class="portfolio-mask-inner__icon animated fadeIn">
-                            <i class="fa fa-image fa-2x"></i>
-                          </div>
-                          <h4 class="portfolio-mask-inner__title animated fadeInUp">Project Title</h4>
-                          <p class="portfolio-mask-inner__summary animated fadeInDown">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+                    <img class="img-responsive" src="img/portfolio-screenshot_3.jpg" alt="...">                    
                   </div>
                 </a>
               </div>
@@ -258,66 +226,27 @@
           <div class="row">
             <div class="col-sm-4 col-alt">
               <div class="portfolio__item">
-                <a href="img/portfolio-screenshot_4.jpg" data-lightbox="portfolio-item__img" data-title="Project Number 4">
+                <a href="img/portfolio-screenshot_4.jpg" data-lightbox="portfolio-item__img">
                   <div class="portfolio-item__img">
-                    <img class="img-responsive" src="img/portfolio-screenshot_4.jpg" alt="...">
-                    <div class="portfolio-item-img__mask">
-                      <div class="portfolio-mask__container">
-                        <div class="portfolio-mask__inner">
-                          <div class="portfolio-mask-inner__icon animated fadeIn">
-                            <i class="fa fa-image fa-2x"></i>
-                          </div>
-                          <h4 class="portfolio-mask-inner__title animated fadeInUp">Project Title</h4>
-                          <p class="portfolio-mask-inner__summary animated fadeInDown">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+                    <img class="img-responsive" src="img/portfolio-screenshot_4.jpg" alt="...">                    
                   </div>
                 </a>
               </div>
             </div>
             <div class="col-sm-4 col-alt">
               <div class="portfolio__item">
-                <a href="img/portfolio-screenshot_5.jpg" data-lightbox="portfolio-item__img" data-title="Project Number 5">
+                <a href="img/portfolio-screenshot_5.jpg" data-lightbox="portfolio-item__img">
                   <div class="portfolio-item__img">
-                    <img class="img-responsive" src="img/portfolio-screenshot_5.jpg" alt="...">
-                    <div class="portfolio-item-img__mask">
-                      <div class="portfolio-mask__container">
-                        <div class="portfolio-mask__inner">
-                          <div class="portfolio-mask-inner__icon animated fadeIn">
-                            <i class="fa fa-image fa-2x"></i>
-                          </div>
-                          <h4 class="portfolio-mask-inner__title animated fadeInUp">Project Title</h4>
-                          <p class="portfolio-mask-inner__summary animated fadeInDown">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+                    <img class="img-responsive" src="img/portfolio-screenshot_5.jpg" alt="...">                    
                   </div>
                 </a>
               </div>
             </div>
             <div class="col-sm-4 col-alt">
               <div class="portfolio__item">
-                <a href="img/portfolio-screenshot_6.jpg" data-lightbox="portfolio-item__img" data-title="Project Number 6">
+                <a href="img/portfolio-screenshot_6.jpg" data-lightbox="portfolio-item__img">
                   <div class="portfolio-item__img">
-                    <img class="img-responsive" src="img/portfolio-screenshot_6.jpg" alt="...">
-                    <div class="portfolio-item-img__mask">
-                      <div class="portfolio-mask__container">
-                        <div class="portfolio-mask__inner">
-                          <div class="portfolio-mask-inner__icon animated fadeIn">
-                            <i class="fa fa-image fa-2x"></i>
-                          </div>
-                          <h4 class="portfolio-mask-inner__title animated fadeInUp">Project Title</h4>
-                          <p class="portfolio-mask-inner__summary animated fadeInDown">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+                    <img class="img-responsive" src="img/portfolio-screenshot_6.jpg" alt="...">                    
                   </div>
                 </a>
               </div>
@@ -332,129 +261,249 @@
       <div class="site-wrapper__inner">
         <div class="cover-container">
           <h2 class="title">
-            Наши <span class="global-text-color">расценки</span> не кусаются
+            Кто сказал, что <span class="global-text-color">атмосферу</span> нельзя приобрести?
           </h2>
           <p class="title__sub-text">
-            Если у Вас интересное и выгодное предложение с хорошим рекламным подтекстом - мы готовы выслушать его.
+            Мы докажем, что с нами возможно все!
           </p>
+          <h2 class="title">
+            Наши <span class="global-text-color">цены</span> вас <span class="global-text-color">приятно удивят</span>
+          </h2>          
+        </div>
+        <div class="cover-container">
+        	<h3 class="title">Пакет <span class="global-text-color">"время"</span></h3>
+        	<p class="title__sub-text">Выездной бар с учетом наших расходных материалов<br>
+        	 (трубочки, шпажки, салфетки, лёд, посуда)</p>
         </div>
         <div class="container">
           <div class="row">
+
             <div class="col-sm-4">
-              <div class="pricing__item">
-                <div class="pricing-item__header">
-                  <div class="pricing-item-header__price">
-                    $10
-                  </div>
-                  <h3 class="pricing-item-header__title">
-                    Single<br />Application
-                  </h3>
-                </div>
-                <div class="pricing-item__body">
-                  <p class="g-line-height-lg">
-                    Pellentesque id commodo nisl, in semper orci. Donec aliquet quam vel porttitor laoreet.
-                  <ul class="pricing-item-body__list fa-ul">
-                    <li>
-                      <i class="fa-li fa fa-check"></i> 
-                      Integer mollis libero et purus auctor gravida
-                    </li>
-                    <li>
-                      <i class="fa-li fa fa-check"></i> 
-                      Nam in enim eu dui elementum dignissim at sed
-                    </li>
-                    <li>
-                      <i class="fa-li fa fa-check"></i> 
-                      Vestibulum vitae orci id purus viverra accumsan
-                    </li>
-                    <li>
-                      <i class="fa-li fa fa-check"></i> 
-                      Nunc sit amet orci sed elit mollis vulputate quis
-                    </li>
-                  </ul>
-                  <div class="btn-white-outline">
-                    <a class="btn btn-white" href="#">Заказать сейчас</a>
-                  </div>
-                </div>
-              </div>
+				<div class="row">					
+					<div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
+						<img src="img/clock1.png">
+					</div>					
+				</div>
+				<div class="row">
+					<div class=col-sm-12>
+						<h4 class="title">
+							3 часа - 250$
+						</h4>
+					</div>
+				</div>				          
             </div>
+
             <div class="col-sm-4">
-              <div class="pricing__item">
-                <div class="pricing-item__header">
-                  <div class="pricing-item-header__price">
-                    $50
-                  </div>
-                  <h3 class="pricing-item-header__title">
-                    Multiple<br />Applications
-                  </h3>
-                </div>
-                <div class="pricing-item__body">
-                  <p class="g-line-height-lg">
-                    Pellentesque id commodo nisl, in semper orci. Donec aliquet quam vel porttitor laoreet.
-                  <ul class="pricing-item-body__list fa-ul">
-                    <li>
-                      <i class="fa-li fa fa-check"></i> 
-                      Integer mollis libero et purus auctor gravida
-                    </li>
-                    <li>
-                      <i class="fa-li fa fa-check"></i> 
-                      Nam in enim eu dui elementum dignissim at sed
-                    </li>
-                    <li>
-                      <i class="fa-li fa fa-check"></i> 
-                      Vestibulum vitae orci id purus viverra accumsan
-                    </li>
-                    <li>
-                      <i class="fa-li fa fa-check"></i> 
-                      Nunc sit amet orci sed elit mollis vulputate quis
-                    </li>
-                  </ul>
-                  <div class="btn-white-outline">
-                    <a class="btn btn-white" href="#">Заказать сейчас</a>
-                  </div>
-                </div>
-              </div>
+				<div class="row">					
+					<div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
+						<img src="img/clock2.png">
+					</div>					
+				</div>
+				<div class="row">
+					<div class=col-sm-12>
+						<h4 class="title">
+							от 3 часов и больше 70$ за каждый последующий час
+						</h4>
+					</div>
+				</div>				          
             </div>
+
             <div class="col-sm-4">
-              <div class="pricing__item">
-                <div class="pricing-item__header">
-                  <div class="pricing-item-header__price">
-                    $100
-                  </div>
-                  <h3 class="pricing-item-header__title">
-                    Extended<br />License
-                  </h3>
-                </div>
-                <div class="pricing-item__body">
-                  <p class="g-line-height-lg">
-                    Pellentesque id commodo nisl, in semper orci. Donec aliquet quam vel porttitor laoreet.
-                  <ul class="pricing-item-body__list fa-ul">
-                    <li>
-                      <i class="fa-li fa fa-check"></i> 
-                      Integer mollis libero et purus auctor gravida
-                    </li>
-                    <li>
-                      <i class="fa-li fa fa-check"></i> 
-                      Nam in enim eu dui elementum dignissim at sed
-                    </li>
-                    <li>
-                      <i class="fa-li fa fa-check"></i> 
-                      Vestibulum vitae orci id purus viverra accumsan
-                    </li>
-                    <li>
-                      <i class="fa-li fa fa-check"></i> 
-                      Nunc sit amet orci sed elit mollis vulputate quis
-                    </li>
-                  </ul>
-                  <div class="btn-white-outline">
-                    <a class="btn btn-white" href="#">Заказать сейчас</a>
-                  </div>
-                </div>
-              </div>
+				<div class="row">					
+					<div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
+						<img src="img/clock3.png">
+					</div>					
+				</div>
+				<div class="row">
+					<div class=col-sm-12>
+						<h4 class="title">
+							от 5 часов и больше 50$ за каждый последующий час
+						</h4>
+					</div>
+				</div>				          
             </div>
+
+          </div>
+
+          <div class="row">
+          	<div class="col-sm-12" style="text-align: center;">
+          		* Алкогольную и прочие виды продукции предоставляет заказчик (соки, сиропы и т.п.)<br>
+          		* Мы предлогаем бесплатную консультацию в выборе алкогольных напитков и в составлении эксклюзивной коктейльной карты<br>
+          		* Мы предоставляем гарнир для коктейлей( лимон, апельсин, лайм и т.п.)
+          	</div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="cover-container">
+        	<h3 class="title">Пакет <span class="global-text-color">"коктейли"</span></h3>
+        	<p class="title__sub-text">Выездной бар с учетом наших расходных материалов<br>
+        	 (трубочки, шпажки, салфетки, лёд, посуда)</p>
+        </div>
+        <div class="container">
+          <div class="row">
+
+            <div class="col-sm-4">
+				<div class="row">					
+					<div class="col-sm-4 col-sm-offset-4 pagination-centered" style="text-align: center;">
+						<img src="img/100.png">
+					</div>					
+				</div>
+				<div class="row">
+					<div class=col-sm-12>
+						<h4 class="title">
+							100 коктейлей = 500$<br>
+							(не больше 5 часов работы)
+						</h4>
+					</div>
+				</div>				          
+            </div>
+
+            <div class="col-sm-4">
+				<div class="row">					
+					<div class="col-sm-4 col-sm-offset-4" style="text-align: center;">
+						<img src="img/200.png">
+					</div>					
+				</div>
+				<div class="row">
+					<div class=col-sm-12>
+						<h4 class="title">
+							200 коктейлей = 800$<br>
+							(не больше 8 часов работы)
+						</h4>
+					</div>
+				</div>				          
+            </div>
+
+            <div class="col-sm-4">
+				<div class="row">					
+					<div class="col-sm-4 col-sm-offset-4" style="text-align: center;">
+						<img src="img/300.png">
+					</div>					
+				</div>
+				<div class="row">
+					<div class=col-sm-12>
+						<h4 class="title">
+							300 коктейлей = 1000$<br>
+							(не больше 10 часов работы)
+						</h4>
+					</div>
+				</div>				          
+            </div>
+
+          </div>
+
+          <div class="row">
+          	<div class="col-sm-12" style="text-align: center;">
+          		* Алкогольную и прочие виды продукции предоставляет заказчик (соки, сиропы и т.п.)<br>
+          		* Мы предлогаем бесплатную консультацию в выборе алкогольных напитков и в составлении эксклюзивной коктейльной карты<br>
+          		* Мы предоставляем гарнир для коктейлей( лимон, апельсин, лайм и т.п.)
+          	</div>
+          </div>
+        </div>
+
+        <div class="cover-container">
+        	<h3 class="title">Пакет <span class="global-text-color">"всё включено"</span></h3>        	
+        </div>
+        <div class="container">
+          <div class="row">
+
+            <div class="col-sm-12">
+				<div class="row">					
+					<div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
+						<img src="img/all_in.png">
+					</div>					
+				</div>
+				<div class="row">
+					<div class=col-sm-12>
+						<h4 class="title">
+							С вашего согласия мы осуществляем закупку необходимой продукции<br>
+							Для организации работы коктейльного бара.<br>
+							Освобождая вас от лишних забот, мы создадим эксклюзивное меню<br>
+							В основу которого войдёт только самая качественная продукция.<br>
+							Тем самым у вас останется время только насладиться изысканными коктейлями,<br>
+							Оставляя все хлопоты на нас.
+						</h4>
+					</div>
+				</div>				          
+            </div>           
+
+          </div>
+
+          <div class="row">
+          	<div class="col-sm-12" style="text-align: center;">
+          		*Все условия и стоимость эксклюзивного предложения "все включено"<br>
+				оговаривается отдельно и зависит от сложности и количества коктейлей.
+          	</div>
+          </div>
+        </div>
+
+        <div class="cover-container">
+        	<h3 class="title"><span class="global-text-color">кальян</span></h3>        	
+        </div>
+        <div class="container">
+          <div class="row">
+
+            <div class="col-sm-12">
+				<div class="row">					
+					<div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
+						<img src="img/calian.png">
+					</div>					
+				</div>
+				<div class="row">
+					<div class=col-sm-12>
+						<h4 class="title">
+							1 час - 20$<br>
+							(1 час - 1 заправка табака)<br>
+							При заказе любого вида выездного бара и кальяна вместе предоставляется скидка в 10%<br>
+							Именно это эксклюзивное предложение позволяет вам получить самые лучшие цены.
+						</h4>					
+					</div>
+				</div>				          
+            </div>           
+
+          </div>
+
+          <div class="row">
+          	<div class="col-sm-12" style="text-align: center;">
+          		*При заказе от двух кальянов и более
+          	</div>
+          </div>
+        </div>
+
+        <div class="cover-container">
+        	<h3 class="title"><span class="global-text-color">Скидки</span> предоставляются в случаях:</h3>        	
+        </div>
+        <div class="container">
+          <div class="row">
+
+            <div class="col-sm-12">
+				<div class="row">					
+					<div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
+						<img src="img/sale.png">
+					</div>					
+				</div>
+				<div class="row">
+					<div class=col-sm-12>
+						<h4 class="title">
+							<span class="global-text-color">Свадьба</span> - скидка в 10% на мальчишник или девичник<br>
+							<span class="global-text-color">День рождения</span> - скидка в 10% (при предъявлении паспорта именинника)<br>							
+							При заказе нашего выездного бара в <span class="global-text-color">3-й и последующие разы</span> скидка 10%<br>
+						</h4>					
+					</div>
+				</div>				          
+            </div>           
+
+          </div>         
+        </div>
+
+      </div>
+
+      </div>
+    </div>
+
+
 
     <!-- Team screen -->
     <div class="site-wrapper site-wrapper_team screen" id="team">
@@ -484,9 +533,9 @@
                   <!-- Item 1 -->
                   <div class="item active">
                     <div class="cover-container">
-                      <div class="team-member__icon">
-                        <i class="fa fa-male fa-2x"></i>
-                      </div>
+                      <div class="center-block">                        
+                      	<img class="profile-img" src="img/barman1.jpg">  
+                     </div>
                       <h2 class="team-member__title global-text-color">
                         Коля
                       </h2>
@@ -494,7 +543,7 @@
                         Старший бармен
                       </h2>
                       <p class="team-member__summary g-line-height-lg">
-                        Отец и основатель проекта. В любое время суток поможет, расскажет и посоветует как сделать лучше и выгоднее Ваш праздник.
+                        Со-основатель проекта, отличный практик. Порадует вас изящной работой и элементами</br> шоу-программы.
                       </p>
                       <div class="text-center">
                         <a href="#contact-us" class="btn btn-transparent team-member__btn">Связаться</a>
@@ -504,9 +553,9 @@
                   <!-- Item 2 -->
                   <div class="item">
                     <div class="cover-container">
-                      <div class="team-member__icon">
-                        <i class="fa fa-apple fa-2x"></i>
-                      </div>
+                      <div class="center-block">                        
+                      	<img class="profile-img" src="img/barman2.jpg">  
+                     </div>
                       <h2 class="team-member__title global-text-color">
                         Антон
                       </h2>
@@ -514,7 +563,7 @@
                         Старший бармен
                       </h2>
                       <p class="team-member__summary g-line-height-lg">
-                        Не хуже Коли и тоже много чего умеет. Профессионал своего дела.
+                        Со-основатель проекта, отличный теоретик. Расскажет много историй и не даст вам заскучать ни на минуту!                        
                       </p>
                       <div class="text-center">
                         <a href="#contact-us" class="btn btn-transparent team-member__btn">Связаться</a>
@@ -526,103 +575,11 @@
 
                 <!-- Controls -->
                 <a class="left carousel-control" href="#team__carousel" role="button" data-slide="prev">
-                  <span class="glyphicon glyphicon-chevron-left"></span>
+                  <span class="glyphicon glyphicon-chevron-left global-text-color"></span>
                 </a>
                 <a class="right carousel-control" href="#team__carousel" role="button" data-slide="next">
-                  <span class="glyphicon glyphicon-chevron-right"></span>
+                  <span class="glyphicon glyphicon-chevron-right global-text-color"></span>
                 </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Features screen -->
-    <div class="site-wrapper site-wrapper_feedback screen" id="features">
-      <div class="site-wrapper__inner">
-        <div class="cover-container">
-          <h2 class="title">
-            Особенности нашего сервиса
-          </h2>
-          <p class="title__sub-text">
-            Не надо долго выбирать - Вам нужны мы!
-          </p>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-6 col-md-5 col-md-offset-1">
-              <div class="features__item">
-                <h2 class="features-item__title">
-                  <span class="global-text-color">01.</span> 
-                  Six color options
-                </h2>
-                <div class="features-item__summary">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at scelerisque diam, ut pellentesque leo. Morbi lacinia ut nibh eget euismod. Donec molestie odio sed leo interdum ultrices.
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-5">
-              <div class="features__item">
-                <h2 class="features-item__title">
-                  <span class="global-text-color">02.</span> 
-                  Four navbar types
-                </h2>
-                <div class="features-item__summary">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at scelerisque diam, ut pellentesque leo. Morbi lacinia ut nibh eget euismod. Donec molestie odio sed leo interdum ultrices.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-6 col-md-5 col-md-offset-1">
-              <div class="features__item">
-                <h2 class="features-item__title">
-                  <span class="global-text-color">03.</span> 
-                  Two menu types
-                </h2>
-                <div class="features-item__summary">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at scelerisque diam, ut pellentesque leo. Morbi lacinia ut nibh eget euismod. Donec molestie odio sed leo interdum ultrices.
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-5">
-              <div class="features__item">
-                <h2 class="features-item__title">
-                  <span class="global-text-color">04.</span> 
-                  Three Background patterns
-                </h2>
-                <div class="features-item__summary">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at scelerisque diam, ut pellentesque leo. Morbi lacinia ut nibh eget euismod. Donec molestie odio sed leo interdum ultrices.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-6 col-md-5 col-md-offset-1">
-              <div class="features__item">
-                <h2 class="features-item__title">
-                  <span class="global-text-color">05.</span> 
-                  Built with LESS
-                </h2>
-                <div class="features-item__summary">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at scelerisque diam, ut pellentesque leo. Morbi lacinia ut nibh eget euismod. Donec molestie odio sed leo interdum ultrices.
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-5">
-              <div class="features__item">
-                <h2 class="features-item__title">
-                  <span class="global-text-color">06.</span> 
-                  Free future updates
-                </h2>
-                <div class="features-item__summary">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris at scelerisque diam, ut pellentesque leo. Morbi lacinia ut nibh eget euismod. Donec molestie odio sed leo interdum ultrices.
-                </div>
               </div>
             </div>
           </div>
@@ -643,44 +600,90 @@
         </div>
         <div class="container">
           <div class="col-xs-6 col-sm-3">
-            <div class="contact__info g-line-height-lg">
-              <h4 class="contact-info__title">Address:</h4>
-              123/4 - ABC
-              <br />
-              Consectetur adipiscing elit
-              <br />
-              Curabitur vestibulum tellus
-              <br />
-              Vestibulum convallis
-            </div>
+          	<ul class="contact-info__social">
+          		<li>
+          			<a href="#">
+          				<i class="fa fa-vk"></i>
+          			</a>
+          		</li>
+          		<li>
+          			<a href="#">
+          				<i class="fa fa-facebook"></i>
+          			</a>
+          		</li>
+          		<li>
+          			<a href="#">
+          				<i class="fa fa-instagram"></i>
+          			</a>
+          		</li>
+          		<li>
+          			<a href="#">
+          				<i class="fa fa-youtube"></i>
+          			</a>
+          		</li>
+          	</ul>
           </div>
           <div class="col-xs-6 col-sm-3">
             <div class="contact__info g-line-height-lg">
               <h4 class="contact-info__title">Телефоны:</h4>
-                +375 (29) 604 11 93 (Velcom)<br />
-                +375 (29) 855 88 28 (МТС)
+                +375 (29) 604 11 93 (Velcom) - Коля<br />
+                +375 (29) 855 88 28 (МТС) - Антон
               <h4 class="contact-info__title">Электронная почта:</h4>
               partybarservice@hotmail.com
             </div>
           </div>
           <div class="col-xs-12 col-sm-6">
-            <form role="form" class="contact__form">
+            <form action="mail.php" id="mail-form" method="post" role="form" class="contact__form">
               <div class="row form-group">
                 <div class="col-xs-6 col-md-4">
                   <label for="email" class="sr-only">Your email address</label>
-                  <input type="email" class="form-control" id="email" placeholder="Электронная почта" data-original-title="" title="">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Электронная почта" data-original-title="" title="">
                 </div>
                 <div class="col-xs-6 col-md-4">
                   <label for="name" class="sr-only">Your name</label>
-                  <input type="text" class="form-control" id="name" placeholder="Ваше имя" data-original-title="" title="">
+                  <input type="text" class="form-control" name="name" id="name" placeholder="Ваше имя" data-original-title="" title="">
                 </div>
               </div>
               <div class="form-group">
                 <label for="message" class="sr-only">Your message</label>
-                <textarea class="form-control" rows="3" id="message" placeholder="Текст сообщения"></textarea>
+                <textarea class="form-control" rows="3" name="message" id="message" placeholder="Текст сообщения"></textarea>
               </div>
               <button type="submit" class="btn btn-transparent">Отправить</button>
             </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Partners screen-->
+    <div class="site-wrapper site-wrapper_contact screen" id="partners">
+      <div class="site-wrapper__inner">
+        <div class="cover-container">
+          <h2 class="title">
+            Наши <span class="global-text-color">партнеры</span>
+          </h2>          
+        </div>
+        <div class="container">                              
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+              <div class="col-sm-4 partner-logo">
+                <div class='first-partner-logo'>
+                <a href="http://loftcafe.by" target="_blank">
+                  <img src="img/loftlogo.png" class="img-responsive">
+                </a>
+                </div>
+              </div>
+              <div class="col-sm-4 partner-logo">
+                <a href="" target="">
+                  <img src="img/coffeelifelogo.png" class="img-responsive">
+                </a>
+              </div>
+              <div class="col-sm-4 partner-logo">
+                <a href="">
+                  <img src="img/barmensguildlogo.png" class="img-responsive">
+                </a>  
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -692,6 +695,6 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/lightbox.min.js"></script>
     <script src="js/scrolltopcontrol.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="js/custom.js"></script>    
   </body>
 </html>

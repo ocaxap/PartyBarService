@@ -21,12 +21,30 @@ body {
     width: 12%;
     min-width: 150px;
     margin: 0 auto;
-    margin-top: .3em;
+    margin-top: 4em;
 }
 
 .logo-img{
     height: 100%;
     background-position: cover;
+}
+
+.profile-img {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.partner-logo{
+  text-align: center;
+}
+
+.first-partner-logo{
+  padding-top: 17.5%;
 }
 article,
 aside,
@@ -941,8 +959,7 @@ img {
 .thumbnail a > img,
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
-  display: block;
-  width: 100% \9;
+  display: inline-block;  
   max-width: 100%;
   height: auto;
 }
@@ -1002,8 +1019,7 @@ h6,
 .h3,
 .h4,
 .h5,
-.h6 {
-  font-family: 'Oswald', sans-serif;
+.h6 {  
   font-weight: 400;
   line-height: 1.1;
   color: inherit;
@@ -2259,6 +2275,14 @@ table th[class*="col-"] {
     border: 1px solid #dddddd;
     -webkit-overflow-scrolling: touch;
   }
+  .partner-logo{
+    margin-bottom: 15px;
+  }
+
+  .partner-logo > img{
+    display: inline-block;
+  }  
+
   .table-responsive > .table {
     margin-bottom: 0;
   }
@@ -4203,7 +4227,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #bfbfbf;
 }
 .navbar-inverse .navbar-nav > li > a {
-  color: #bfbfbf;
+  color: #F0ECEC;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
@@ -6448,7 +6472,7 @@ body {
   .navbar-transparent .navbar-nav > li > a,
   .navbar-transparent .navbar-nav > .active > a,
   .navbar-transparent .navbar-nav > .disabled > a {
-    color: #FFF;
+    color: rgb(100, 100, 100);
   }
   .navbar-transparent .navbar-brand:hover,
   .navbar-transparent .navbar-text:hover,
@@ -6460,7 +6484,7 @@ body {
   .navbar-transparent .navbar-nav > li > a:focus,
   .navbar-transparent .navbar-nav > .active > a:focus,
   .navbar-transparent .navbar-nav > .disabled > a:focus {
-    color: #FFF;
+    color: #000;
   }
 }
 /*
@@ -6481,13 +6505,14 @@ body {
  * Button :: Transparent
  */
 .btn-transparent {
-  border-color: #FFF;
-  color: #FFF;
+  border-color: #000;
+  color: #000;
 }
 .btn-transparent:hover,
 .btn-transparent:focus {
-  background: rgba(255, 255, 255, 0.1);
+  background: #fcae11;
   color: #FFF;
+  border-color: #FFF;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -6565,12 +6590,14 @@ body {
 html,
 body {
   height: 100%;
+  background-image: url(../img/fon.png);
+  background-size: cover;
 }
 body {
   position: relative;
-  color: white;
-  background-color: rgb(38, 38, 38);
+  color: black;  
 }
+
 .bg-pattern {
   /*background-image: url(../img/pattern_no.png);*/
   background-repeat: repeat;
@@ -6619,6 +6646,7 @@ body {
   .site-wrapper__inner {
     vertical-align: middle;
     padding-top: 0;
+    padding-top: 60px;
   }
   #welcome > .site-wrapper__inner {
     padding-top: 0;
@@ -6676,12 +6704,7 @@ body {
  */
 .about__item {
   margin-bottom: 30px;
-  cursor: pointer;
-  opacity: 0.5;
-  filter: alpha(opacity=50);
-  -webkit-transition: opacity 300ms;
-  -o-transition: opacity 300ms;
-  transition: opacity 300ms;
+  
 }
 .about__item:hover,
 .about__item:focus {
@@ -6693,11 +6716,27 @@ body {
   margin-bottom: 20px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.18);
 }
-.about-item-header__icon {
-  display: table-cell;
-  vertical-align: middle;
-  font-size: 48px;
+#about-item-header__icon_one {
+  height: 48px;  
+  width: 25px;
+  background-size: contain;
+  background-image: url('../img/menu.png');
 }
+
+#about-item-header__icon_two {
+  height: 48px;  
+  width: 35px;
+  background-size: contain;
+  background-image: url('../img/kokteyl.png');
+}
+
+#about-item-header__icon_three {
+  height: 48px;  
+  width: 37px;
+  background-size: contain;
+  background-image: url('../img/chasy.png');
+}
+
 .about-item-header__title {
   display: table-cell;
   vertical-align: middle;
@@ -6781,6 +6820,10 @@ body {
   display: table;
   margin-bottom: 20px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.18);
+}
+
+.pricing-item-img{
+  margin: 0 auto;
 }
 .pricing-item-header__price {
   display: table-cell;
@@ -6872,44 +6915,77 @@ body {
 .contact-info__title:first-child {
   margin-top: 0;
 }
+
+.contact-info__social {
+  list-style-type: none;
+  margin:  0;
+  padding-left: 0;
+}
+
+.contact-info__social > li {
+display: inline-block;
+height: 50px;
+width: 50px;
+margin-right: 10px;
+border-radius: 50%;
+border: 1px solid #000;
+background-color: #000;
+line-height: 50px;
+text-align: center;
+overflow: hidden;
+}
+
+.contact-info__social > li > a {
+  display: block;
+  color: #fff;
+  font-size: 2.5em;
+  -webkit-transition: background 300ms;
+  -o-transition: background 300ms;
+  transition: background 300ms;
+}
+
 .contact__form {
   margin-bottom: 60px;
 }
 .contact__form .form-control {
   background: transparent;
   border-radius: 0;
-  border-color: #FFF;
-  color: #FFF;
+  border-color: #000;
+  color: #000;
   font-weight: 400;
   -webkit-transition: background 300ms;
   -o-transition: background 300ms;
   transition: background 300ms;
 }
 .contact__form .form-control::-moz-placeholder {
-  color: #ffffff;
+  color: #000;
   opacity: 1;
 }
 .contact__form .form-control:-ms-input-placeholder {
-  color: #ffffff;
+  color: #000;
 }
 .contact__form .form-control::-webkit-input-placeholder {
-  color: #ffffff;
+  color: #000;
 }
 .contact__form .form-control:focus {
-  background: #FFF;
-  color: #333333;
+  background: #fcae11;
+  color: #fff;
   -webkit-box-shadow: none;
   box-shadow: none;
+  border-color: #fff;
 }
 .contact__form .form-control:focus::-moz-placeholder {
-  color: #333333;
+  color: #fff;
   opacity: 1;
+  border-color: #fff;
 }
 .contact__form .form-control:focus:-ms-input-placeholder {
-  color: #333333;
+  color: #fff;
+  border-color: #fff;
 }
 .contact__form .form-control:focus::-webkit-input-placeholder {
-  color: #333333;
+  color: #fff;
+  border-color: #fff;
 }
 .contact__form .btn {
   background: transparent;
@@ -6918,7 +6994,7 @@ body {
 }
 .contact__form .btn:hover,
 .contact__form .btn:focus {
-  background: rgba(255, 255, 255, 0.1);
+  background: #fcae11;
   color: #FFF;
   outline: none;
   -webkit-box-shadow: none;

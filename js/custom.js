@@ -63,7 +63,7 @@ $('.screen').waypoint(function(direction) {
  */
 
 $(document).ready(function(){
-    $('a[href=#welcome],a[href=#about], a[href=#portfolio], a[href=#pricing], a[href=#team], a[href=#features], a[href=#contact-us]').bind("click", function(e){
+    $('a[href=#welcome],a[href=#about], a[href=#portfolio], a[href=#pricing], a[href=#team], a[href=#features], a[href=#contact-us], a[href=#partners]').bind("click", function(e){
       var anchor = $(this);
       $('html, body').stop().animate({
         scrollTop: $(anchor.attr('href')).offset().top

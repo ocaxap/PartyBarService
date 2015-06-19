@@ -163,7 +163,7 @@ body:after {
   line-height: 1em;
 }
 
-.lb-data .lb-number {
+.lb-data{
   display: block;
   clear: left;
   padding-bottom: 1em;
