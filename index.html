@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+﻿  <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="ico/favicon.ico">
     <title>Party Bar Service</title>
+    <!--Favicon-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 
     <!-- Custom Styles -->
     <link href="css/style.css" rel="stylesheet">
@@ -33,13 +36,50 @@
   </head>
   <script type="text/javascript">
     $(document).ready(function(){
+      var success;
       var form = $('#mail-form');
-      form.submit(function(){
+      form.submit(function(event){
+        event.preventDefault(); // выключаем стандартную роль элемента        
         $.post($(this).attr('action'), $(this).serialize(), function(response){
-                
+        if (response){
+          $('#overlay').fadeIn(400, // сначала плавно показываем темную подложку
+          function(){ // после выполнения предъидущей анимации
+            $('#modal_form') 
+              .css('display', 'block') // убираем у модального окна display: none;
+              .animate({opacity: 1, top: '50%'}, 200); // плавно прибавляем прозрачность одновременно со съезжанием вниз
+          });
+          $('#modal-header').html("Ваше сообщение успешно отправлено!");
+          $('#modal-content').html("Мы свяжемся с Вами в ближайшее время.");          
+        }
+        else{
+          $('#overlay').fadeIn(400, // сначала плавно показываем темную подложку
+          function(){ // после выполнения предъидущей анимации
+            $('#modal_form') 
+              .css('display', 'block') // убираем у модального окна display: none;
+              .animate({opacity: 1, top: '50%'}, 200); // плавно прибавляем прозрачность одновременно со съезжанием вниз
+          });
+          $('#modal-header').html("Ваше сообщение не отправлено!");
+          $('#modal-content').html("Пожалуйста, проверьте правильность введенных данных и повторите попытку.")
+        }
+        success = response;                
         },'json');
-        return false;
+        
       });
+      $('#modal-close, #overlay').click( function(){ // ловим клик по крестику или подложке
+        $('#modal_form')
+            .animate({opacity: 0, top: '45%'}, 200,  // плавно меняем прозрачность на 0 и одновременно двигаем окно вверх
+              function(){ // после анимации
+                $(this).css('display', 'none'); // делаем ему display: none;
+                $('#overlay').fadeOut(400); // скрываем подложку
+                if (success){
+                  $('#email').empty();
+                  $('#name').empty();
+                  $('#message').empty();
+                }                  
+        }
+      );
+            return false;
+  });
     });      
   </script>
 
@@ -52,6 +92,12 @@
     <!--<div class="backstretch-carousel"></div>-->
 
     <!-- Sidebar Menu -->
+    <form id="modal_form"><!-- Само окно -->        
+      <h4 id="modal-header"></h4>
+      <p id="modal-content" class="title__sub-text"></p>
+      <button type=submit id="modal-close" class="btn btn-transparent">Ок</button>      
+    </form>
+    <div id="overlay"></div><!-- Подложка -->
     <div class="sidebar-btn hidden"><i class="fa fa-bars fa-2x"></i></div>
     <div class="sidebar-overlay hidden"></div>
     <div class="sidebar sidebar-menu hidden">
@@ -108,7 +154,7 @@
           <h1 class="site-wrapper-welcome__title">
           </h1>
           <p class="site-wrapper-welcome__summary">
-          	Party Bar Service - мобильный коктейль-бар.<br> Без сомнения, с ним Ваша вечеринка, день рожедния, свадьба, корпоратив станет намного красочнее, интересней, вкуснее и самое главное - запомниться Вашим гостям еще на долго!
+            Party Bar Service - мобильный коктейль-бар.<br> Без сомнения, с ним Ваша вечеринка, день рожедния, свадьба, корпоратив станет намного красочнее, интересней, вкуснее и самое главное - запомниться Вашим гостям еще на долго!
           </p>
           <div class="text-center">
             <a class="btn btn-transparent site-wrapper-welcome__btn" href="#about">
@@ -271,228 +317,228 @@
           </h2>          
         </div>
         <div class="cover-container">
-        	<h3 class="title">Пакет <span class="global-text-color">"время"</span></h3>
-        	<p class="title__sub-text">Выездной бар с учетом наших расходных материалов<br>
-        	 (трубочки, шпажки, салфетки, лёд, посуда)</p>
+          <h3 class="title">Пакет <span class="global-text-color">"время"</span></h3>
+          <p class="title__sub-text">Выездной бар с учетом наших расходных материалов<br>
+           (соломки, шпажки, салфетки, лёд, посуда)</p>
         </div>
         <div class="container">
           <div class="row">
 
             <div class="col-sm-4">
-				<div class="row">					
-					<div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
-						<img src="img/clock1.png">
-					</div>					
-				</div>
-				<div class="row">
-					<div class=col-sm-12>
-						<h4 class="title">
-							3 часа - 250$
-						</h4>
-					</div>
-				</div>				          
+        <div class="row">         
+          <div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
+            <img src="img/clock1.png">
+          </div>          
+        </div>
+        <div class="row">
+          <div class=col-sm-12>
+            <h4 class="title">
+              3 часа - 250$
+            </h4>
+          </div>
+        </div>                  
             </div>
 
             <div class="col-sm-4">
-				<div class="row">					
-					<div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
-						<img src="img/clock2.png">
-					</div>					
-				</div>
-				<div class="row">
-					<div class=col-sm-12>
-						<h4 class="title">
-							от 3 часов и больше 70$ за каждый последующий час
-						</h4>
-					</div>
-				</div>				          
+        <div class="row">         
+          <div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
+            <img src="img/clock2.png">
+          </div>          
+        </div>
+        <div class="row">
+          <div class=col-sm-12>
+            <h4 class="title">
+              от 3 часов и больше 70$ за каждый последующий час
+            </h4>
+          </div>
+        </div>                  
             </div>
 
             <div class="col-sm-4">
-				<div class="row">					
-					<div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
-						<img src="img/clock3.png">
-					</div>					
-				</div>
-				<div class="row">
-					<div class=col-sm-12>
-						<h4 class="title">
-							от 5 часов и больше 50$ за каждый последующий час
-						</h4>
-					</div>
-				</div>				          
+        <div class="row">         
+          <div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
+            <img src="img/clock3.png">
+          </div>          
+        </div>
+        <div class="row">
+          <div class=col-sm-12>
+            <h4 class="title">
+              от 5 часов и больше 50$ за каждый последующий час
+            </h4>
+          </div>
+        </div>                  
             </div>
 
           </div>
 
           <div class="row">
-          	<div class="col-sm-12" style="text-align: center;">
-          		* Алкогольную и прочие виды продукции предоставляет заказчик (соки, сиропы и т.п.)<br>
-          		* Мы предлогаем бесплатную консультацию в выборе алкогольных напитков и в составлении эксклюзивной коктейльной карты<br>
-          		* Мы предоставляем гарнир для коктейлей( лимон, апельсин, лайм и т.п.)
-          	</div>
+            <div class="col-sm-12" style="text-align: center;">
+              * Алкогольную и прочие виды продукции предоставляет заказчик (соки, сиропы и т.п.)<br>
+              * Мы предлогаем бесплатную консультацию в выборе алкогольных напитков и в составлении эксклюзивной коктейльной карты<br>
+              * Мы предоставляем гарнир для коктейлей( лимон, апельсин, лайм и т.п.)
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="cover-container">
-        	<h3 class="title">Пакет <span class="global-text-color">"коктейли"</span></h3>
-        	<p class="title__sub-text">Выездной бар с учетом наших расходных материалов<br>
-        	 (трубочки, шпажки, салфетки, лёд, посуда)</p>
+          <h3 class="title">Пакет <span class="global-text-color">"коктейли"</span></h3>
+          <p class="title__sub-text">Выездной бар с учетом наших расходных материалов<br>
+           (соломки, шпажки, салфетки, лёд, посуда)</p>
         </div>
         <div class="container">
           <div class="row">
 
             <div class="col-sm-4">
-				<div class="row">					
-					<div class="col-sm-4 col-sm-offset-4 pagination-centered" style="text-align: center;">
-						<img src="img/100.png">
-					</div>					
-				</div>
-				<div class="row">
-					<div class=col-sm-12>
-						<h4 class="title">
-							100 коктейлей = 500$<br>
-							(не больше 5 часов работы)
-						</h4>
-					</div>
-				</div>				          
+        <div class="row">         
+          <div class="col-sm-4 col-sm-offset-4 pagination-centered" style="text-align: center;">
+            <img src="img/100.png">
+          </div>          
+        </div>
+        <div class="row">
+          <div class=col-sm-12>
+            <h4 class="title">
+              100 коктейлей = 500$<br>
+              (не больше 5 часов работы)
+            </h4>
+          </div>
+        </div>                  
             </div>
 
             <div class="col-sm-4">
-				<div class="row">					
-					<div class="col-sm-4 col-sm-offset-4" style="text-align: center;">
-						<img src="img/200.png">
-					</div>					
-				</div>
-				<div class="row">
-					<div class=col-sm-12>
-						<h4 class="title">
-							200 коктейлей = 800$<br>
-							(не больше 8 часов работы)
-						</h4>
-					</div>
-				</div>				          
+        <div class="row">         
+          <div class="col-sm-4 col-sm-offset-4" style="text-align: center;">
+            <img src="img/200.png">
+          </div>          
+        </div>
+        <div class="row">
+          <div class=col-sm-12>
+            <h4 class="title">
+              200 коктейлей = 800$<br>
+              (не больше 8 часов работы)
+            </h4>
+          </div>
+        </div>                  
             </div>
 
             <div class="col-sm-4">
-				<div class="row">					
-					<div class="col-sm-4 col-sm-offset-4" style="text-align: center;">
-						<img src="img/300.png">
-					</div>					
-				</div>
-				<div class="row">
-					<div class=col-sm-12>
-						<h4 class="title">
-							300 коктейлей = 1000$<br>
-							(не больше 10 часов работы)
-						</h4>
-					</div>
-				</div>				          
+        <div class="row">         
+          <div class="col-sm-4 col-sm-offset-4" style="text-align: center;">
+            <img src="img/300.png">
+          </div>          
+        </div>
+        <div class="row">
+          <div class=col-sm-12>
+            <h4 class="title">
+              300 коктейлей = 1000$<br>
+              (не больше 10 часов работы)
+            </h4>
+          </div>
+        </div>                  
             </div>
 
           </div>
 
           <div class="row">
-          	<div class="col-sm-12" style="text-align: center;">
-          		* Алкогольную и прочие виды продукции предоставляет заказчик (соки, сиропы и т.п.)<br>
-          		* Мы предлогаем бесплатную консультацию в выборе алкогольных напитков и в составлении эксклюзивной коктейльной карты<br>
-          		* Мы предоставляем гарнир для коктейлей( лимон, апельсин, лайм и т.п.)
-          	</div>
+            <div class="col-sm-12" style="text-align: center;">
+              * Алкогольную и прочие виды продукции предоставляет заказчик (соки, сиропы и т.п.)<br>
+              * Мы предлогаем бесплатную консультацию в выборе алкогольных напитков и в составлении эксклюзивной коктейльной карты<br>
+              * Мы предоставляем гарнир для коктейлей( лимон, апельсин, лайм и т.п.)
+            </div>
           </div>
         </div>
 
         <div class="cover-container">
-        	<h3 class="title">Пакет <span class="global-text-color">"всё включено"</span></h3>        	
+          <h3 class="title">Пакет <span class="global-text-color">"всё включено"</span></h3>          
         </div>
         <div class="container">
           <div class="row">
 
             <div class="col-sm-12">
-				<div class="row">					
-					<div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
-						<img src="img/all_in.png">
-					</div>					
-				</div>
-				<div class="row">
-					<div class=col-sm-12>
-						<h4 class="title">
-							С вашего согласия мы осуществляем закупку необходимой продукции<br>
-							Для организации работы коктейльного бара.<br>
-							Освобождая вас от лишних забот, мы создадим эксклюзивное меню<br>
-							В основу которого войдёт только самая качественная продукция.<br>
-							Тем самым у вас останется время только насладиться изысканными коктейлями,<br>
-							Оставляя все хлопоты на нас.
-						</h4>
-					</div>
-				</div>				          
+        <div class="row">         
+          <div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
+            <img src="img/all_in.png">
+          </div>          
+        </div>
+        <div class="row">
+          <div class=col-sm-12>
+            <h4 class="title">
+              С вашего согласия мы осуществляем закупку необходимой продукции<br>
+              Для организации работы коктейльного бара.<br>
+              Освобождая вас от лишних забот, мы создадим эксклюзивное меню<br>
+              В основу которого войдёт только самая качественная продукция.<br>
+              Тем самым у вас останется время только насладиться изысканными коктейлями,<br>
+              Оставляя все хлопоты на нас.
+            </h4>
+          </div>
+        </div>                  
             </div>           
 
           </div>
 
           <div class="row">
-          	<div class="col-sm-12" style="text-align: center;">
-          		*Все условия и стоимость эксклюзивного предложения "все включено"<br>
-				оговаривается отдельно и зависит от сложности и количества коктейлей.
-          	</div>
+            <div class="col-sm-12" style="text-align: center;">
+              *Все условия и стоимость эксклюзивного предложения "все включено"<br>
+        оговаривается отдельно и зависит от сложности и количества коктейлей.
+            </div>
           </div>
         </div>
 
         <div class="cover-container">
-        	<h3 class="title"><span class="global-text-color">кальян</span></h3>        	
+          <h3 class="title"><span class="global-text-color">кальян</span></h3>          
         </div>
         <div class="container">
           <div class="row">
 
             <div class="col-sm-12">
-				<div class="row">					
-					<div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
-						<img src="img/calian.png">
-					</div>					
-				</div>
-				<div class="row">
-					<div class=col-sm-12>
-						<h4 class="title">
-							1 час - 20$<br>
-							(1 час - 1 заправка табака)<br>
-							При заказе любого вида выездного бара и кальяна вместе предоставляется скидка в 10%<br>
-							Именно это эксклюзивное предложение позволяет вам получить самые лучшие цены.
-						</h4>					
-					</div>
-				</div>				          
+        <div class="row">         
+          <div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
+            <img src="img/calian.png">
+          </div>          
+        </div>
+        <div class="row">
+          <div class=col-sm-12>
+            <h4 class="title">
+              1 час - 20$<br>
+              (1 час - 1 заправка табака)<br>
+              При заказе любого вида выездного бара и кальяна вместе предоставляется скидка в 10%<br>
+              Именно это эксклюзивное предложение позволяет вам получить самые лучшие цены.
+            </h4>         
+          </div>
+        </div>                  
             </div>           
 
           </div>
 
           <div class="row">
-          	<div class="col-sm-12" style="text-align: center;">
-          		*При заказе от двух кальянов и более
-          	</div>
+            <div class="col-sm-12" style="text-align: center;">
+              *При заказе от двух кальянов и более
+            </div>
           </div>
         </div>
 
         <div class="cover-container">
-        	<h3 class="title"><span class="global-text-color">Скидки</span> предоставляются в случаях:</h3>        	
+          <h3 class="title"><span class="global-text-color">Скидки</span> предоставляются в случаях:</h3>         
         </div>
         <div class="container">
           <div class="row">
 
             <div class="col-sm-12">
-				<div class="row">					
-					<div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
-						<img src="img/sale.png">
-					</div>					
-				</div>
-				<div class="row">
-					<div class=col-sm-12>
-						<h4 class="title">
-							<span class="global-text-color">Свадьба</span> - скидка в 10% на мальчишник или девичник<br>
-							<span class="global-text-color">День рождения</span> - скидка в 10% (при предъявлении паспорта именинника)<br>							
-							При заказе нашего выездного бара в <span class="global-text-color">3-й и последующие разы</span> скидка 10%<br>
-						</h4>					
-					</div>
-				</div>				          
+        <div class="row">         
+          <div class="col-sm-8 col-sm-offset-2" style="text-align: center;">
+            <img src="img/sale.png">
+          </div>          
+        </div>
+        <div class="row">
+          <div class=col-sm-12>
+            <h4 class="title">
+              <span class="global-text-color">Свадьба</span> - скидка в 10% на мальчишник или девичник<br>
+              <span class="global-text-color">День рождения</span> - скидка в 10% (при предъявлении паспорта именинника)<br>              
+              При заказе нашего выездного бара в <span class="global-text-color">3-й и последующие разы</span> скидка 10%<br>
+            </h4>         
+          </div>
+        </div>                  
             </div>           
 
           </div>         
@@ -534,7 +580,7 @@
                   <div class="item active">
                     <div class="cover-container">
                       <div class="center-block">                        
-                      	<img class="profile-img" src="img/barman1.jpg">  
+                        <img class="profile-img" src="img/barman1.jpg">  
                      </div>
                       <h2 class="team-member__title global-text-color">
                         Коля
@@ -554,7 +600,7 @@
                   <div class="item">
                     <div class="cover-container">
                       <div class="center-block">                        
-                      	<img class="profile-img" src="img/barman2.jpg">  
+                        <img class="profile-img" src="img/barman2.jpg">  
                      </div>
                       <h2 class="team-member__title global-text-color">
                         Антон
@@ -600,28 +646,28 @@
         </div>
         <div class="container">
           <div class="col-xs-6 col-sm-3">
-          	<ul class="contact-info__social">
-          		<li>
-          			<a href="#">
-          				<i class="fa fa-vk"></i>
-          			</a>
-          		</li>
-          		<li>
-          			<a href="#">
-          				<i class="fa fa-facebook"></i>
-          			</a>
-          		</li>
-          		<li>
-          			<a href="#">
-          				<i class="fa fa-instagram"></i>
-          			</a>
-          		</li>
-          		<li>
-          			<a href="#">
-          				<i class="fa fa-youtube"></i>
-          			</a>
-          		</li>
-          	</ul>
+            <ul class="contact-info__social">
+              <li>
+                <a href="https://vk.com/partybarservice" target="_blank">
+                  <i class="fa fa-vk"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/partybarservice" target="_blank">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li>
+                <a href="http://instagram.com/partybarservice" target="_blank">
+                  <i class="fa fa-instagram"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://vk.com/away.php?to=https%3A%2F%2Fwww.youtube.com%2Fchannel%2FUCu8H224FwwP7zxjM7nTv7SA" target="_blank">
+                  <i class="fa fa-youtube"></i>
+                </a>
+              </li>
+            </ul>
           </div>
           <div class="col-xs-6 col-sm-3">
             <div class="contact__info g-line-height-lg">
@@ -674,12 +720,12 @@
                 </div>
               </div>
               <div class="col-sm-4 partner-logo">
-                <a href="" target="">
+                
                   <img src="img/coffeelifelogo.png" class="img-responsive">
-                </a>
+                
               </div>
               <div class="col-sm-4 partner-logo">
-                <a href="">
+                <a href="http://barguild.by" target="_blank">
                   <img src="img/barmensguildlogo.png" class="img-responsive">
                 </a>  
               </div>

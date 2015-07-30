@@ -5,9 +5,10 @@ $message = $_POST["message"];
 $email = $_POST["email"];
 $success = false;
 
-if (mail('ocaxap@gmail.com', 'Письмо с PartyBarService.by', 'Имя: '.$name."\ne-mail: ".$email."\nТекст: ".$message))
-{		
-	$success = true;
+if ($name != "" && $message != "" && $email != "")
+{	
+	if (mail('partybarservice@hotmail.com', 'PartyBarService.by', "e-mail: ".$email."\nРРјСЏ: ".$name."\nРўРµРєСЃС‚ СЃРѕРѕР±С‰РµРЅРёСЏ: ".$message))
+		$success = true;
 }
 else
 {	

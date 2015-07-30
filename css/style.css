@@ -7000,3 +7000,49 @@ overflow: hidden;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+
+#modal_form {
+  text-align: center;
+  width: 360px; 
+  border-radius: 5px;  
+  background: #fff;
+  position: fixed; /* чтобы окно было в видимой зоне в любом месте */
+  top: 45%; /* отступаем сверху 45%, остальные 5% подвинет скрипт */
+  left: 50%; /* половина экрана слева */
+  margin-top: -50px;
+  margin-left: -180px; /* тут вся магия центровки css, отступаем влево и вверх минус половину ширины и высоты соответственно =) */
+  display: none; /* в обычном состоянии окна не должно быть */
+  opacity: 0; /* полностью прозрачно для анимирования */
+  z-index: 5; /* окно должно быть наиболее большем слое */
+  padding: 20px 10px;
+}
+/* Кнопка закрыть для тех кто в танке) */
+
+/* Подложка */
+#overlay {
+  z-index: 3; /* подложка должна быть выше слоев элементов сайта, но ниже слоя модального окна */
+  position: fixed; /* всегда перекрывает весь сайт */
+  background-color: #000; /* черная */
+  opacity: 0.8; /* но немного прозрачна */
+  width: 100%; 
+  height: 100%; /* размером во весь экран */
+  top: 0; 
+  left: 0; /* сверху и слева 0, обязательные свойства! */
+  cursor: pointer;
+  display: none; /* в обычном состоянии её нет) */
+}
+
+#modal_form .btn {
+  margin-top: 15px;
+  background: transparent;
+  border-radius: 0;
+  padding: 5px 20px;
+}
+#modal_form .btn:hover,
+#modal_form .btn:focus {
+  background: #fcae11;
+  color: #FFF;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
